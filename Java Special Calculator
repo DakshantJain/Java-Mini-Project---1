@@ -1,0 +1,129 @@
+import java.util.Scanner;
+public class Calculator {
+    //Making Functons Of Each Of them Addition/Subtraction/Multiplication/Division :P
+    public static float Addition(float A, float B) {
+        return A + B;
+    }
+
+    public static float Subtraction(float A, float B) {
+        if (A > B) {
+            return A - B;
+        } else {
+            return B - A;
+        }
+    }
+
+    public static float Multiplication(float A, float B) {
+        return A * B;
+    }
+
+    public static float Division(float A, float B) {
+        if (A > B) {
+            return A / B;
+        } else {
+            return B / A;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Choose Any One :- ");
+        System.out.println("1. Calculator");
+        System.out.println("2. Currency Calculator");
+
+        //Calculator
+//---------------------------------------------------------------------------
+        int UserChoice = sc.nextInt();
+        if (UserChoice == 1) {
+
+            System.out.println("Enter A Number :- ");
+            float A = sc.nextFloat();
+
+            System.out.println("Enter the Second Number :- ");
+            float B = sc.nextFloat();
+
+            System.out.println("Enter the Operator Sign:- ");
+            String O = sc.next();
+
+
+            if (O.equals("+")) {
+                float Result = Addition((float) A, (float) B);
+                System.out.println("The result of " + A + " And " + B + "is :- " + Result);
+            } else if (O.equals("-")) {
+                float Result = Subtraction((float) A, (float) B);
+                System.out.println("The Result of " + A + " And " + B + "is:- " + Result);
+            } else if (O.equals("*")) {
+                float Result = Multiplication((float) A, (float) B);
+                System.out.println("The Product Of " + A + " And " + B + "is :- " + Result);
+            } else if (O.equals("/")) {
+                float Result = Division((float) A, (float) B);
+                System.out.println("The Product Of " + A + " And " + B + "is :- " + Result);
+            }
+        }
+//---------------------------------------------------------------------------
+
+            // Currency Calculator
+//---------------------------------------------------------------------------
+            if (UserChoice == 2) {
+                System.out.println("Choose The First Currency :- ");
+                System.out.println("1. Indian Ruppee");
+                System.out.println("2. USA Dollar");
+                System.out.println("3. Euro");
+                System.out.println("4. Qwuety Dinaar");
+                int FirstCurrencyChoice = sc.nextInt();
+
+
+                System.out.println("Choose The Second Currency :- ");
+                System.out.println("1. Indian Ruppee");
+                System.out.println("2. USA Dollar");
+                System.out.println("3. Euro");
+                System.out.println("4. Qwuety Dinaar");
+                int SecondCurrencyChoice = sc.nextInt();
+
+                System.out.println("Enter The Amount Of First Currency :- ");
+                float First = sc.nextFloat();
+
+
+                if (FirstCurrencyChoice == SecondCurrencyChoice) {
+                    throw new RuntimeException("You Have Choosen The Same Currencu Again !!");
+                } else {
+
+                    float conversionRate = 0.0F;
+
+
+                    if (FirstCurrencyChoice == 1 && SecondCurrencyChoice == 2) {
+                        conversionRate = 0.014F;
+                    } else if (FirstCurrencyChoice == 1 && SecondCurrencyChoice == 3) {
+                        conversionRate = 0.012F;
+                    } else if (FirstCurrencyChoice == 1 && SecondCurrencyChoice == 4) {
+                        conversionRate = 0.0042F;
+                    } else if (FirstCurrencyChoice == 2 && SecondCurrencyChoice == 1) {
+                        conversionRate = 71.50F;
+                    } else if (FirstCurrencyChoice == 2 && SecondCurrencyChoice == 3) {
+                        conversionRate = 0.85F;
+                    } else if (FirstCurrencyChoice == 2 && SecondCurrencyChoice == 4) {
+                        conversionRate = 3.32F;
+                    } else if (FirstCurrencyChoice == 3 && SecondCurrencyChoice == 1) {
+                        conversionRate = 84.17F;
+                    } else if (FirstCurrencyChoice == 3 && SecondCurrencyChoice == 2) {
+                        conversionRate = 1.18F;
+                    } else if (FirstCurrencyChoice == 3 && SecondCurrencyChoice == 4) {
+                        conversionRate = 3.91F;
+                    } else if (FirstCurrencyChoice == 4 && SecondCurrencyChoice == 1) {
+                        conversionRate = 237.93F;
+                    } else if (FirstCurrencyChoice == 4 && SecondCurrencyChoice == 2) {
+                        conversionRate = 0.30F;
+                    } else if (FirstCurrencyChoice == 4 && SecondCurrencyChoice == 3) {
+                        conversionRate = 0.26F;
+                    }
+
+                    float ConvertedAmount = First * conversionRate;
+                    System.out.println(ConvertedAmount);
+
+
+                }
+            }
+// ----------------------------------------------------------------------------------
+
+    }
+}
